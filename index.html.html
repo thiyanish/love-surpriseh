@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color: white;
+    text-align: center;
+}
+
+/* CONTENT */
+.container {
+    position: relative;
+    z-index: 2;
+    padding: 50px;
+}
+
+h1 {
+    font-size: 40px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px white; }
+    to { text-shadow: 0 0 20px yellow; }
+}
+
+img {
+    width: 250px;
+    border-radius: 20px;
+    margin: 10px;
+    box-shadow: 0 0 15px black;
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: white;
+    color: #ff4d6d;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: yellow;
+}
+
+/* HEART ANIMATION */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 24px;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>SORRY BABY🩵</h1>
+
+    <p id="msg">Click below… I have something for you 🥺</p>
+
+    <button onclick="showMessage()">Click Me 💌</button>
+
+    <div id="photos"
+    style="display: none;">
+        <img src="photo1.jpg">
+        <img src="photo2.jpg">
+        <img src="photo3.jpg">
+        <img src="photo4.jpg">
+    </div>
+</div>
+
+<script>
+
+// MUSIC
+let music = new Audio("song.mp3");
+
+// MESSAGE + MUSIC
+function showMessage() {
+    document.getElementById("msg").innerHTML =
+    "Imreally sorry 😔... I miss you a lot 💔<br><br>You mean everything to me 🩵<br><br>Please forgive me 🥺<br><br> Im Sorry Muh😭🥺<br><br>I love you so much baby🫂🩵🫶🏽";
+
+// SHOW PHOTOS
+    document.getElementById("photos").style.display = "block";
+
+    music.play();
+}
+
+// HEARTS
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "🩵";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 300);
+
+</script>
+
+</body>
+</html>
